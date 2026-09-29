@@ -1,0 +1,26 @@
+
+   ┌──────────────────────────────────────────────┐
+   │      THIS PROJECT IS FREE & OPEN SOURCE      │
+   │   github.com/itsPLK/ps5-webkit-autoloader    │
+   └──────────────────────────────────────────────┘
+
+   ┌──────────────────────────────────────────────┐
+   │            PS5-WEBKIT-AUTOLOADER             │
+   │      INSTALLER-HOST v0.4.0-relapse-13x       │
+   │    by PLK (built 2026-09-29 09:26:27 UTC)    │
+   └──────────────────────────────────────────────┘
+[+] Spoofing 'manuals.playstation.net' -> 127.0.0.1
+    -> Blocking all other domains
+[+] HTTP server on TCP 18080
+
+[+] Set your PS5 DNS to 127.0.0.1.
+[+] Waiting for PS5 connection...
+
+
+[+] PS5 connection detected.
+    Now open the User's Guide on your PS5
+    (Settings -> User's Guide) to install the
+    WebKit Autoloader.
+
+
+[-] Shutting down.

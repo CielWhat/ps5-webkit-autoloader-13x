@@ -1,0 +1,27 @@
+name: Crowdin Action
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 * * * *' # Also run once an hour to download new translations automatically
+
+jobs:
+  synchronize-with-crowdin:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Crowdin action
+      uses: crowdin/github-action@v1
+      with:
+        upload_sources: true
+        download_translations: true
+        push_translations: true
+        create_pull_request: false
+        localization_branch_name: main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+        CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}

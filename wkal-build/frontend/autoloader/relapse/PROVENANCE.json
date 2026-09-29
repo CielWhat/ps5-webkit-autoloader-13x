@@ -1,0 +1,10 @@
+{
+  "upstream_revision": "254df04dd58c67ad6f3bb30e76eea40f79bffe51",
+  "sha256": {
+    "ps5-webkit-autoloader-main.zip": "b7b9d49219794fbb8613756db4297efa39d3140e2394f7e23037364bc30d1e98",
+    "Relapse-Exploit-main.zip": "c73bcd183c4b21a185f12d230abea81d3d9c43ade2a69942f1c5ddf69607cbbe",
+    "payloads/kexp_2026_05_25.bin": "7cfb3a8cb86db67893c360ae3531f460f800e9f24039797038e6e81fc50f18a9",
+    "payloads/elfldr-ps5-1360.elf": "de5dd480d12637527ba2d75e35de851adbb59c455293fa32588c492ef6b44b81"
+  },
+  "integration_notes": "See ../../../PORT-13X.md. main.js, site.js, kexp.js and index.html adapted for WKAL; exploit primitives and offsets unchanged."
+}

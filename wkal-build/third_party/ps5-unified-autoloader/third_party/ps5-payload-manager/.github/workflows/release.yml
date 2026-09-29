@@ -1,0 +1,70 @@
+name: Release On-Demand
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Extract Version
+        id: version
+        run: |
+          VERSION=$(grep '#define MENU_VERSION' include/pldmgr.h | awk '{print $3}' | tr -d '"' | tr -d '\r')
+          if [ -z "$VERSION" ]; then
+            echo "Error: Could not find MENU_VERSION in include/pldmgr.h"
+            exit 1
+          fi
+          echo "Extracted version: $VERSION"
+          echo "tag=v${VERSION}" >> $GITHUB_OUTPUT
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Check if release exists
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ steps.version.outputs.tag }}"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG already exists. Aborting."
+            exit 1
+          fi
+          echo "Release $TAG does not exist. Proceeding."
+
+      - name: Build Payload Manager
+        run: |
+          chmod +x build_release.sh
+          ./build_release.sh
+
+      - name: Create Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ steps.version.outputs.tag }}"
+          VERSION="${{ steps.version.outputs.version }}"
+          # Get the most recent tag before this release to generate the changelog link
+          PREV_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          
+          if [ -n "$PREV_TAG" ]; then
+            NOTES="Full Changelog: https://github.com/${{ github.repository }}/compare/$PREV_TAG...$TAG"
+          else
+            NOTES="First Release."
+          fi
+          
+          # Create the release and upload the ELF file
+          gh release create "$TAG" \
+            --title "$TAG" \
+            --notes "$NOTES" \
+            "pldmgr_v${VERSION}.elf"

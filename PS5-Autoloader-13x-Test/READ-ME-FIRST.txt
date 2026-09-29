@@ -1,0 +1,32 @@
+EXPERIMENTAL PS5 AUTOLOADER — 13.x TEST BUILD
+
+For your PS5 on 13.40. Stay on that firmware.
+This is a locally built experimental port, not a hardware-verified release.
+
+FIRST TEST (Mac and PS5 on the same local network)
+1. Double-click Start Host.command on this Mac.
+2. If prompted, type your Mac login password in the Terminal window.
+   Do not send the password in chat. Allow local network access if macOS asks.
+3. The host prints the Mac IP address to use as your PS5's DNS server.
+4. Record your current PS5 network/DNS settings, then set Primary DNS to that
+   Mac IP. Do not use a public fallback DNS during this local-host test.
+5. Open Settings > User's Guide on your PS5.
+6. Report the last displayed messages or any failure before further retries.
+
+EXPECTED SEQUENCE (not yet verified on a console)
+Relapse starts automatically, then sends the installer to elfldr. The installer
+opens its cache page and creates the WebKit Autoloader homescreen app after
+caching completes. Only after it reports success, reboot and test the shortcut
+offline. Payload compatibility beyond the installer is still unverified.
+
+If you already have a working jailbreak/ELF loader, the included installer ELF
+is the alternative entry point; do not run both entry methods simultaneously.
+
+This launcher disables upstream update notices, since upstream releases do not
+contain this experimental port. It does not modify your Mac's DNS settings.
+To stop serving, press Control-C in the host window. Restore the PS5's previous
+DNS settings when you no longer want it to use this host.
+
+The build VM is not needed to run this Python host. Keep the build environment
+until the console test succeeds; then it can be removed without losing these
+release files or the source.

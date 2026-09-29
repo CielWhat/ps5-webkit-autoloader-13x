@@ -1,0 +1,12 @@
+[submodule "third_party/ps5-unified-autoloader"]
+	path = third_party/ps5-unified-autoloader
+	url = https://github.com/itsPLK/ps5-unified-autoloader.git
+[submodule "third_party/slopkit"]
+	path = third_party/slopkit
+	url = https://github.com/itsPLK/slopkit.git
+[submodule "third_party/umtx2"]
+	path = third_party/umtx2
+	url = https://github.com/idlesauce/umtx2.git
+[submodule "third_party/ps5-elfldr"]
+	path = third_party/ps5-elfldr
+	url = https://github.com/itsPLK/ps5-elfldr.git

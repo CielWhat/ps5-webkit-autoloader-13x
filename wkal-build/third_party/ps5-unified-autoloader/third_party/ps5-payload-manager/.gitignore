@@ -1,0 +1,30 @@
+# Compiled Binaries
+*.elf
+*.bin
+*.o
+
+# Generated Asset Headers
+include/assets_*.h
+
+# Frontend build artifacts
+frontend/dist/
+frontend/node_modules/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Reference materials
+.for_reference/
+
+# Scratch directory
+scratch/
+
+# Local build dependency artifacts
+lib/
+include/curl/
+include/openssl/
+pldmgr.elf.zip
