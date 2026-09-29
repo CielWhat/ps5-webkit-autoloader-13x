@@ -27,7 +27,8 @@ No original authorship is claimed here — all credit belongs to the upstream cr
 * **[Mark Adler](https://github.com/madler)** — [puff.c](https://github.com/madler/zlib/tree/master/contrib/puff) (embedded frontend decompression)
 * Everyone else contributing to the PS5 homebrew scene.
 
-## This 13.x port
+## This port (Relapse default for 7.00–13.60)
 
-* Integration only (routing, AppCache/cache-filter, iframe handoff, PC-host packaging). No new exploit offsets or primitives invented.
+* Port maintainer: **[CielWhat](https://github.com/CielWhat)**
+* Integration work only (Relapse vendoring, firmware routing, AppCache/cache-filter, iframe handoff, PC-host packaging, rebuilds). No new exploit offsets or primitives invented — those belong to the authors above.
 * See `wkal-build/PORT-13X.md`, `wkal-build/BUILD-STATUS.md`, `PS5-Autoloader-13x-Test/BUILD-INFO.json`.

@@ -114,6 +114,7 @@ Full credits in [`CREDITS.md`](CREDITS.md) and [`THIRD-PARTY-NOTICES.md`](THIRD-
 * pooP2JB: [soniciso1](https://github.com/soniciso1/pooP2JB)
 * ps5-payload-sdk / elfldr: [john-tornblom](https://github.com/john-tornblom) / [ps5-payload-dev](https://github.com/ps5-payload-dev/sdk/)
 * puff.c: [Mark Adler](https://github.com/madler)
+* 7.00–13.60 port integration: [CielWhat](https://github.com/CielWhat)
 
 ## Licenses
 
