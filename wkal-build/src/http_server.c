@@ -223,14 +223,10 @@ enum MHD_Result http_on_request(void *cls, struct MHD_Connection *conn,
                 } else if (strcmp(WKALI_FORCE_EXPLOIT, "relapse") == 0) {
                     wkali_log("[WKALI] FORCE_EXPLOIT is set, caching Relapse exploit\n");
                 } else {
-                    if (fw >= 13.00f && fw <= 13.60f) {
-                        wkali_log("[WKALI] Detected firmware %.2f, caching Relapse exploit\n", fw);
-                    } else if (fw <= 5.50f) {
+                    if (fw <= 5.50f) {
                         wkali_log("[WKALI] Detected firmware %.2f <= 5.50, caching umtx2 exploit\n", fw);
-                    } else if (fw <= 12.00f) {
-                        wkali_log("[WKALI] Detected firmware %.2f <= 12.00, caching poops exploit\n", fw);
                     } else {
-                        wkali_log("[WKALI] Detected firmware %.2f > 12.00, caching p2jb exploit\n", fw);
+                        wkali_log("[WKALI] Detected firmware %.2f, caching Relapse exploit\n", fw);
                     }
                 }
 

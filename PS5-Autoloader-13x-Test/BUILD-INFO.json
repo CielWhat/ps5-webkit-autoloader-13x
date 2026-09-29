@@ -1,25 +1,58 @@
 {
   "version": "0.4.0-relapse-13x",
-  "status": "Compiled and locally tested; PS5 hardware test pending",
+  "status": "Compiled and locally tested; install-tested on 13.40 (cache + homescreen app OK)",
   "autoloader_revision": "137f065d2ba8022ba8e796895e7cb05c204f2ce9",
   "relapse_revision": "254df04dd58c67ad6f3bb30e76eea40f79bffe51",
   "sdk_revision": "f7fd02e6e195902a449b5e664917be8c01888b34",
   "sdk_image": "sha256:fffecd20d33ca78f0ae3fe3da40bd8774e5b68107d679ad74f0a74ef1c8cc8db",
   "automatic_relapse_firmware": [
+    "7.00",
+    "7.01",
+    "7.20",
+    "7.40",
+    "7.60",
+    "7.61",
+    "8.00",
+    "8.20",
+    "8.40",
+    "8.60",
+    "9.00",
+    "9.20",
+    "9.40",
+    "9.60",
+    "10.00",
+    "10.01",
+    "10.20",
+    "10.40",
+    "10.60",
+    "11.00",
+    "11.20",
+    "11.60",
+    "12.00",
+    "12.02",
+    "12.20",
+    "12.40",
+    "12.60",
+    "12.70",
     "13.00",
     "13.20",
     "13.40",
     "13.42",
     "13.60"
   ],
+  "legacy_fallback_firmware": [
+    "9.05",
+    "11.40"
+  ],
+  "legacy_fallback_note": "9.05/11.40 have no Relapse offsets and stay on poops; poops/p2jb also forcible via ?force= on any firmware",
   "checks_passed": [
     "JavaScript routing and handoff tests",
     "Python packaging tests",
     "C cache-filter tests",
     "Native PS5 installer compilation",
     "Exact installer binary embedded in PC host",
-    "13.x firmware offset files present in installer and PC host",
-    "Local HTTP serving of 13.40/13.60 offsets, Relapse iframe and installer"
+    "7.00-13.60 firmware offset files present in installer and PC host",
+    "Local HTTP serving of 12.60/13.40/13.60 offsets, Relapse iframe and installer"
   ],
   "sha256": {
     "LICENSE-autoloader.txt": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
@@ -27,7 +60,7 @@
     "READ-ME-FIRST.txt": "4f0ea30e2c53ccedff180d7b6d6639cf477d30e4f96aa6efdf120de2b6dcd7ec",
     "Start Host.command": "609e8668f2d7f443beb64d0d2d906f18b724812f807f33560465e184a09b7e97",
     "host-smoke-test.log": "4f8fa40d6b27eaf60642a309956e086f843e9af72ea391ceeca9f56263cf1356",
-    "webkit-autoloader-host_v0.4.0-relapse-13x.py": "a82279b05490497884b38c1a62739fc2c6dc2845c5997096ccb7ed24f5653f08",
-    "webkit-autoloader-installer_v0.4.0-relapse-13x.elf": "5158a79dfebe0adc226b4760e78bdcf047580477c086ac20c4161b2f1ff4d7fb"
+    "webkit-autoloader-host_v0.4.0-relapse-13x.py": "f56e37f99f9001ae1bfa76b3c042d3821f947d151cb11e55f1b05ce585f7ba72",
+    "webkit-autoloader-installer_v0.4.0-relapse-13x.elf": "f3cef4a5ae7ed838d963aa1fc281ba145a2dae63d839019cf3f08b7d8a827939"
   }
 }

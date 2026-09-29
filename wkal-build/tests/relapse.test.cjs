@@ -34,8 +34,14 @@ for (const fw of ['13.00', '13.20', '13.40', '13.42', '13.60']) {
 for (const fw of ['13.50', '13.61', '14.00', '6.00', null])
   assert.equal(route(fw).elements.exploit.src, 'about:blank');
 assert.match(route('5.50').elements.exploit.src, /^umtx2\//);
-assert.match(route('12.00').elements.exploit.src, /^slopkit\/slopkit\/poops/);
-assert.match(route('12.70').elements.exploit.src, /^slopkit\/slopkit\/p2jb/);
+for (const fw of ['7.00', '9.60', '12.00', '12.60', '12.70']) {
+  assert.match(route(fw).elements.exploit.src, /^relapse\//);
+  assert.ok(fs.existsSync(path.join(root, 'frontend/autoloader/relapse/offsets', fw + '.js')));
+}
+// 9.05/11.40 have no Relapse offsets: legacy poops fallback.
+assert.match(route('9.05').elements.exploit.src, /^slopkit\/slopkit\/poops/);
+assert.match(route('11.40').elements.exploit.src, /^slopkit\/slopkit\/poops/);
+assert.match(route('12.60', '?force=p2jb').elements.exploit.src, /^slopkit\/slopkit\/p2jb/);
 assert.match(route('13.40', '?force=relapse').elements.exploit.src, /^relapse\//);
 const routed = route('13.40');
 const before = routed.elements.progressLabel.textContent;

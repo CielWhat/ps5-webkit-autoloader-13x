@@ -1,14 +1,17 @@
-# Experimental Relapse integration for 13.x
+# Experimental Relapse integration (7.00–13.60 default)
 
 ## Status
 
-Source integration completed; local integration tests pass. No installer ELF
-has been built and no PS5 hardware test has been performed. This is not a
-ready-to-install or confirmed-compatible release.
+Source integration completed; local integration tests pass. The installer ELF
+has been built from the wkal-build copy and install-tested on a 13.40 console
+(cache + homescreen app OK). Offline launch / payload runs on other firmwares
+remain unverified.
 
-Automatic routing selects Relapse for exactly 13.00, 13.20, **13.40**, 13.42,
-and 13.60. The earlier umtx2/poops/p2jb routes are retained. There is no need to
-change your 13.40 firmware to exercise its route.
+Automatic routing selects Relapse for every firmware it ships offsets for:
+7.00–13.60 (33 versions, including **12.60** and **13.40** — no more 50-minute
+poops/p2jb waits). umtx2 still serves 1.00–5.50. poops/p2jb remain only as
+legacy fallbacks: 9.05/11.40 have no Relapse offsets, and any chain can still
+be forced via `?force=` or build-time `FORCE_EXPLOIT`.
 
 ## Changes
 
@@ -24,8 +27,11 @@ change your 13.40 firmware to exercise its route.
 - Removed the timestamp from offset URLs and wait for offset-script readiness
   before running the chain, so those files can load from AppCache.
 - Added the exact iframe query URL to AppCache and updated native cache
-  filtering to retain Relapse assets on 13.x and omit unrelated chains.
+  filtering to retain Relapse assets on 7.00+ (slopkit files are still cached
+  on 7.00–12.70 as legacy fallback) and omit unrelated chains.
 - Restricted completion messages to the same-origin exploit iframe.
+- Auto-routing order is now umtx2 → Relapse → poops → p2jb, so 7.00–12.70
+  consoles (e.g. 12.60) run Relapse instead of the slow slopkit chains.
 
 The WebKit and kernel exploit implementations are unchanged. Successful byte
 transfer means elfldr received the payload, not that the native installer or

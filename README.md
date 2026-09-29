@@ -1,14 +1,16 @@
-# PS5 WebKit Autoloader — 13.x Port (13.00 / 13.20 / 13.40 / 13.42 / 13.60)
+# PS5 WebKit Autoloader — Relapse Port (7.00–13.60 default)
 
-Experimental port of the PS5 WebKit Autoloader to 13.x using the Relapse exploit chain.
-Built and tested locally; PS5 hardware validation pending (see `PS5-Autoloader-13x-Test/READ-ME-FIRST.txt`).
+Experimental port of the PS5 WebKit Autoloader using the Relapse exploit chain
+as the automatic route for 7.00–13.60 (no more 50-minute poops/p2jb waits, e.g.
+on 12.60). Install-tested on 13.40 (cache + homescreen app OK); other firmwares
+remain experimental. See `PS5-Autoloader-13x-Test/READ-ME-FIRST.txt`.
 
 ## Contents
 
 * `wkal-build/` — ported autoloader source + successful `0.4.0-relapse-13x` build (`installer.elf`, PC host). See `wkal-build/PORT-13X.md` and `wkal-build/BUILD-STATUS.md`.
-* `ps5-webkit-autoloader-main/` — upstream autoloader source snapshot (rev `137f065d2ba8022ba8e796895e7cb05c204f2ce9`) with 13.x integration.
-* `Relapse-Exploit-main/` — upstream Relapse exploit snapshot (rev `254df04dd58c67ad6f3bb30e76eea40f79bffe51`).
-* `PS5-Autoloader-13x-Test/` — ready-to-use deliverables for 13.40: `webkit-autoloader-installer_v0.4.0-relapse-13x.elf` + `webkit-autoloader-host_v0.4.0-relapse-13x.py`. See `BUILD-INFO.json`.
+* `ps5-webkit-autoloader-main/` — upstream autoloader source snapshot (rev `137f065d2ba8022ba8e796895e7cb05c204f2ce9`) with the Relapse integration.
+* `Relapse-Exploit-main/` — upstream Relapse exploit snapshot (rev `254df04dd58c67ad6f3bb30e76eea40f79bffe51`, supports 7.00–13.60).
+* `PS5-Autoloader-13x-Test/` — ready-to-use deliverables: `webkit-autoloader-installer_v0.4.0-relapse-13x.elf` + `webkit-autoloader-host_v0.4.0-relapse-13x.py`. See `BUILD-INFO.json`.
 * Original ZIPs + `autoloader-13x-existing-files.diff` retained for provenance.
 
 ## Setup Instructions
@@ -20,7 +22,7 @@ There are two ways to set up the autoloader, depending on whether you're already
 1. Get `webkit-autoloader-installer_v0.4.0-relapse-13x.elf` from `PS5-Autoloader-13x-Test/`.
 2. Send it to your PS5 with `elfldr` (port `9021`), or launch it from Payload Manager:
    `nc <PS5-IP> 9021 < webkit-autoloader-installer_v0.4.0-relapse-13x.elf`
-3. The installer opens the browser once to cache the autoloader page (Relapse chain for 13.x), then creates the **WebKit Autoloader** app on the homescreen and exits. Look for `Detected firmware 13.40, caching Relapse exploit` and `Launcher app installed successfully` in the log.
+3. The installer opens the browser once to cache the autoloader page (Relapse chain on 7.00–13.60), then creates the **WebKit Autoloader** app on the homescreen and exits. Look for `Detected firmware 13.40, caching Relapse exploit` and `Launcher app installed successfully` in the log.
 4. **Reboot once**, then launch **WebKit Autoloader** from the homescreen — no PC or DNS needed anymore.
 
 ### Not jailbroken yet
@@ -92,7 +94,10 @@ etaHEN.elf
 ```
 </Details>
 
-## Stability notes (13.x / Relapse)
+## Stability notes (Relapse)
+
+* Relapse runs automatically for 7.00–13.60 — including 12.60, which no longer needs the 50-minute poops/p2jb chain. poops/p2jb stay available via `?force=poops` / `?force=p2jb` (9.05/11.40 use legacy poops: no Relapse offsets exist for them).
+* WebKit may need several attempts — reload the page if the browser stalls.
 
 * WebKit may need several attempts — reload the page if the browser stalls.
 * The kernel exploit may hang or panic the console — reboot before trying again if that happens.

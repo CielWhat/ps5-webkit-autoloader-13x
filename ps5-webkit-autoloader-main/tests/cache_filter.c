@@ -11,8 +11,11 @@ int main(void) {
     assert(wkal_cache_keep(relapse, 13.60f, "auto"));
     assert(!wkal_cache_keep(slopkit, 13.40f, "auto"));
     assert(!wkal_cache_keep(umtx2, 13.40f, "auto"));
-    assert(!wkal_cache_keep(relapse, 12.70f, "auto"));
+    assert(wkal_cache_keep(relapse, 12.70f, "auto"));
+    assert(wkal_cache_keep(relapse, 12.60f, "auto"));
+    assert(wkal_cache_keep(relapse, 7.00f, "auto"));
     assert(wkal_cache_keep(slopkit, 12.70f, "auto"));
+    assert(!wkal_cache_keep(slopkit, 13.60f, "auto"));
     assert(wkal_cache_keep(umtx2, 5.50f, "auto"));
     assert(!wkal_cache_keep(relapse, 5.50f, "auto"));
     assert(wkal_cache_keep(relapse, 7.00f, "relapse"));

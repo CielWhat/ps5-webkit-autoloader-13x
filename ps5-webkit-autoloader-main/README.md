@@ -28,12 +28,15 @@ This autoloader does it differently:
 - **One-time setup, then a homescreen shortcut.** Once it's installed, you don't need a PC or the network at all — just launch "WebKit Autoloader" from the homescreen and you're done.
 - **Payloads loaded the way you already know.** After the exploit chain runs, your payloads are sent just like in [Y2JB](https://github.com/itsPLK/ps5-y2jb-autoloader) / [BD-JB](https://github.com/itsPLK/ps5-bdjb-autoloader) / [Lua](https://github.com/itsPLK/ps5-lua-autoloader) autoloaders — via **Payload Manager**, or a custom `autoload.txt`.
 
-## Experimental 13.x source port
+## Experimental Relapse port (7.00–13.60 default)
 
-This copy integrates the supplied Relapse snapshot for **13.00, 13.20, 13.40,
-13.42 and 13.60**. These routes are experimental and have not been tested on
-hardware. The existing release downloads linked below do **not** contain this
-port. See [PORT-13X.md](PORT-13X.md) for build requirements and validation status.
+This copy integrates the supplied Relapse snapshot as the automatic route for
+**7.00–13.60** (33 firmware versions, including 12.60 and 13.40 — no more
+50-minute poops/p2jb waits). poops/p2jb remain as legacy fallbacks (9.05/11.40
+have no Relapse offsets; any chain is forcible via `?force=`). 13.40 has been
+install-tested on hardware; other firmwares remain experimental. The existing
+release downloads linked below do **not** contain this port. See
+[PORT-13X.md](PORT-13X.md) for build requirements and validation status.
 
 ## Setup Instructions
 
